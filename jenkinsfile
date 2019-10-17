@@ -1,10 +1,25 @@
 pipeline {
-  agent any
-  stages {
-    stage('build') {
-      steps {
-        sh 'echo Building ${BRANCH_NAME}...'
-      }
+    agent any 
+    stages {
+    stage ('pull'){
+        steps {
+            git credentialsId: 'github', url: 'https://github.com/oselukar/vue-starter.git'
+            
+        } 
+                   }
+ 
+ stage ('Docker-Build') {
+     steps {
+         sh 'docker build -t omkesh/vue-starter2:1 .'
+         
+     }
+ }
+stage ('docker push'){
+     steps { 
+         withDockerRegistry([credentialsId: 'dockerhub' , url: ""]){
+             sh 'docker push omkesh/vue-starter2:1'
+         }
+     }
     }
-  }
+}
 }
