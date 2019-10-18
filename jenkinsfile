@@ -1,11 +1,13 @@
 pipeline {
     agent any 
     stages {
+    /**
     stage ('pull'){
         steps {
             git credentialsId: 'github', url: 'https://github.com/oselukar/vue-starter.git'
             
-        } 
+        }
+     **/
                    }
  
  stage ('Docker-Build') {
