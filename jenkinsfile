@@ -1,3 +1,4 @@
+/**
 pipeline {
     agent any 
     stages {
@@ -24,4 +25,11 @@ stage ('docker push'){
      }
     }
 }
+}
+**/
+
+node{
+  stage("Build Image"){
+        sh 'docker build -t vue-s:$BRANCH-$BUILD_NUMBER'
+  }
 }
