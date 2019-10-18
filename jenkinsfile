@@ -29,7 +29,10 @@ stage ('docker push'){
 **/
 
 node{
+  stage("SCM"){
+     git branch: 'master', url: 'https://github.com/yashshanker/vue-starter.git'
+  }
   stage("Build Image"){
-        sh 'docker build -t vue-s:$BRANCH-$BUILD_NUMBER'
+     sh 'docker build -t vue-s:$BRANCH-$BUILD_NUMBER'
   }
 }
