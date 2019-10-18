@@ -10,7 +10,7 @@ pipeline {
  
  stage ('Docker-Build') {
      steps {
-         sh 'docker build -t omkesh/development:v${BUILD_NUMBER}-${GIT-BRANCH}.'
+         sh 'docker build -t omkesh/development:v${BUILD_NUMBER}-${GIT-BRANCH} .'
          
      }
  }
