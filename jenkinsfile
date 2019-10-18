@@ -4,6 +4,7 @@ pipeline {
     stage ('pull'){
         steps {
             git credentialsId: 'github', url: 'https://github.com/oselukar/vue-starter.git'
+            sh 'echo "This pipeline is from master branch."'
             
         } 
                    }
