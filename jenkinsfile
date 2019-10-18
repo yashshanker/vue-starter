@@ -10,14 +10,14 @@ pipeline {
  
  stage ('Docker-Build') {
      steps {
-         sh 'docker build -t omkesh/production:v${BUILD_NUMBER}-${GIT-BRANCH} .'
+         sh 'docker build -t omkesh/vue-starter:v${BUILD_NUMBER}-${GIT-BRANCH} .'
          
      }
  }
 stage ('docker push'){
      steps { 
          withDockerRegistry([credentialsId: 'dockerhub' , url: ""]){
-             sh 'docker push omkesh/production:v${BUILD_NUMBER}-${GIT-BRANCH}'
+             sh 'docker push omkesh/vue-starter:v${BUILD_NUMBER}-${GIT-BRANCH}'
          }
      }
     }
