@@ -33,6 +33,6 @@ node{
      git branch: 'master', url: 'https://github.com/yashshanker/vue-starter.git'
   }
   stage("Build Image"){
-     sh 'docker build -t vue-s:$BRANCH-$BUILD_NUMBER .'
+     sh 'docker build -t yash/vue-s:$GIT_BRANCH-$BUILD_NUMBER .'
   }
 }
