@@ -2,14 +2,14 @@
 pipeline {
     agent any 
     stages {
-    /**
+    
     stage ('pull'){
         steps {
             git credentialsId: 'github', url: 'https://github.com/oselukar/vue-starter.git'
             
         }                 
     }
-    **/
+    
  
  stage ('Docker-Build') {
      steps {
@@ -23,9 +23,9 @@ stage ('docker push'){
              sh 'docker push omkesh/vue-starter:v${BUILD_NUMBER}-${GIT_BRANCH}'
          }
      }
-    }
+  }
 }
-}
+
 **/
 
 node{
