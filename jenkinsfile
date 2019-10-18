@@ -6,9 +6,9 @@ pipeline {
         steps {
             git credentialsId: 'github', url: 'https://github.com/oselukar/vue-starter.git'
             
-        }
-     **/
-                   }
+        }                 
+    }
+    **/
  
  stage ('Docker-Build') {
      steps {
